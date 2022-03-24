@@ -2,7 +2,7 @@ package io.reactivex.ios.schedulers;
 
 
 import apple.foundation.NSOperationQueue;
-import io.reactivex.Scheduler;
+import io.reactivex.rxjava3.core.Scheduler;
 
 /**
  * Static factory methods for creating Schedulers.

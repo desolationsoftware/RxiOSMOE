@@ -4,8 +4,8 @@ import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
 import apple.foundation.NSBlockOperation;
 import apple.foundation.NSOperationQueue;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
 
 /**
  * A {@code Runnable} that executes an {@code Runnable} that can be cancelled.

@@ -6,11 +6,10 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import apple.foundation.NSOperationQueue;
-import io.reactivex.Scheduler;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.disposables.Disposables;
-import io.reactivex.internal.schedulers.RxThreadFactory;
+import io.reactivex.rxjava3.core.Scheduler;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.internal.schedulers.RxThreadFactory;
 
 /**
  * Schedules actions to run on an iOS Handler thread.
@@ -51,7 +50,7 @@ class HandlerThreadScheduler extends Scheduler {
         @Override
         public Disposable schedule(final Runnable action, long delayTime, TimeUnit unit) {
             if (innerSubscription.isDisposed()) {
-                return Disposables.empty();
+                return Disposable.empty();
             }
 
             final ScheduledAction scheduledAction = new ScheduledAction(action, operationQueue);
@@ -64,7 +63,7 @@ class HandlerThreadScheduler extends Scheduler {
                 future = executor.schedule(scheduledAction, delayTime, unit);
             }
 
-            scheduledAction.add(Disposables.fromFuture(future));
+            scheduledAction.add(Disposable.fromFuture(future));
             scheduledAction.addParent(innerSubscription);
 
             return scheduledAction;

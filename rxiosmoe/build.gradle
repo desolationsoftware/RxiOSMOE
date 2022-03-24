@@ -5,7 +5,7 @@ buildscript {
     }
     dependencies {
         // Multi-OS Engine plugin
-        classpath group: 'org.multi-os-engine', name: 'moe-gradle', version: '1.4.+'
+        classpath 'org.multi-os-engine:moe-gradle:1.7.4'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
     }
 }
@@ -29,7 +29,7 @@ repositories {
 test { exclude '**' }
 
 dependencies {
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.13'
 }
 
 
@@ -61,7 +61,7 @@ task install {
 
 }
 
-apply from: 'https://raw.githubusercontent.com/devjn/JCenter/master/installjarv1.gradle'
-apply from: 'https://raw.githubusercontent.com/devjn/JCenter/master/bintrayv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/devjn/JCenter/master/installjarv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/devjn/JCenter/master/bintrayv1.gradle'
 
-project.install.dependsOn publishToMavenLocal
+//project.install.dependsOn publishToMavenLocal
